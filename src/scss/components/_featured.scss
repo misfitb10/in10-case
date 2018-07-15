@@ -44,7 +44,8 @@
         }
 
         &:before {
-            content: "⇘";
+            //content: "⇘"; // I'd rather have it like this!
+            content: url("../images/icons/icon-lower-corner.png");
             text-align: center;
             background-color: $bgcolor-icons;
             position: absolute;
@@ -52,15 +53,14 @@
             top: 0;
             width: 50px;
             height: 50px;
-            font-size: 50px;
-            line-height: 42px;
+            line-height: 70px;
 
             @include breakpoint($bp-large, 'from') {
                 left: -70px;
                 width: 70px;
                 height: 70px;
                 font-size: 70px;
-                line-height: 62px;
+                line-height: 50px;
             }
         }
     }
