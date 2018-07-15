@@ -9,13 +9,9 @@
 
 // Wraps featured and activities so they're both next to each other
 .content-wrapper {
-    @include breakpoint(621px 1488px, 'from-to') {
-        margin: 0 auto;
-        max-width: 620px;
-    }
+    margin: 50px 0;
 
-    @include breakpoint(1489px, 'from') {
-        margin: 50px 0;
+    @include breakpoint($bp-large, 'from') {
         display: flex;
         max-width: 100%;
     }

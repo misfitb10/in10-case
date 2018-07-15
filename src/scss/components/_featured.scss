@@ -3,12 +3,14 @@
 ******************************/
 .featured {
     @include breakpoint(621px, 'from') {
-        width: 620px;
+        @include centered();
     }
 
-    @include breakpoint(1489px, 'from') {
+    @include breakpoint($bp-large, 'from') {
         margin-right: 40px;
     }
+
+
 
     // List and List items
     &__list {
@@ -20,34 +22,31 @@
         margin: $margin-default-li;
     }
 
+
+
     // Text
     &__text {
         margin-top: -20px;
         margin-left: 20px;
+        margin-right: 20px;
 
-        @include breakpoint(1489px, 'from') {
+        @include breakpoint($bp-large, 'from') {
             margin-left: 40px;
         }
     }
 
     &__label {
-        display: inline-block;
-        background-color: $color-headings;
-        color: $color-white;
-        font-size: 12px;
-        line-height: 13px;
-        padding: 5px 15px 5px 5px;
-        position: relative;
+        @include label();
         margin-left: 50px;
 
-        @include breakpoint(1489px, 'from') {
+        @include breakpoint($bp-large, 'from') {
             margin-left: 70px;
         }
 
         &:before {
             content: "⇘";
             text-align: center;
-            background-color: #00BAFF;
+            background-color: $bgcolor-icons;
             position: absolute;
             left: -50px;
             top: 0;
@@ -56,7 +55,7 @@
             font-size: 50px;
             line-height: 42px;
 
-            @include breakpoint(1489px, 'from') {
+            @include breakpoint($bp-large, 'from') {
                 left: -70px;
                 width: 70px;
                 height: 70px;
@@ -66,12 +65,14 @@
         }
     }
 
-    // featured info contains title, subtitle, and is the "main" content area
+
+
+    // Info contains title, subtitle, and is the "main" content area
     &__info {
         margin-left: 60px;
         margin-top: 10px;
 
-        @include breakpoint(1489px, 'from') {
+        @include breakpoint($bp-large, 'from') {
             margin-left: 90px;
             margin-top: 20px;
         }
@@ -80,10 +81,35 @@
     &__title {
         font-size: 36px;
         line-height: 40px;
+        margin: $margin-featured-sections;
     }
 
     &__subtitle {
         font-size: 14px;
         line-height: 15px;
+        margin: $margin-featured-sections;
+    }
+
+    // Artist lists = list of artist performing a featured list item.
+    // The items are seperated by a bullet
+    &__artists-list {
+        @include clearList();
+        margin: $margin-featured-sections;
+
+        &-item {
+            display: inline;
+
+            &:last-child {
+                &:after {
+                    content: "";
+                    padding: 0;
+                }
+            }
+
+            &:after {
+                content: "●";
+                padding: 0 5px;
+            }
+        }
     }
 }
