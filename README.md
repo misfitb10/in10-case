@@ -7,4 +7,6 @@ There are two components in this project: featured and activities. Both of them 
 ## Build
 To build this project, please follow these steps:
 * Download the repo
-* Run npm install
+* Run **npm install**
+* Run **gulp bw**, this builds and watches the project
+* Other commands: gulp c (cleans the build dir), cb (cleans and builds), cbw (cleans, builds, watches), b (builds), bw (builds, watches)
