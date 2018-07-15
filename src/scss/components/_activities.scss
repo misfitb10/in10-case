@@ -132,11 +132,11 @@
         }
 
         &:hover {
-            text-decoration: underline;
             padding-left: 28px;
 
             &:before {
                 left: 3px;
+                text-decoration: none;
             }
         }
     }
