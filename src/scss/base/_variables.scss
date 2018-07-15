@@ -7,13 +7,17 @@ $color-secondary:       #fff !default;
 $color-white:           #fff !default;
 $color-black:           #000 !default;
 
+$color-headings:        #1A1E26 !default;
+$color-paragraphs:      #1A1E26 !default;
+$color-date:            #C59033 !default;
+
 // Fonts
 $font-stack-default:    Arial, sans-serif !default;
-$font-stack-roboto:     Roboto, Arial, sans-serif !default;
 $font-size-h1:          22px !default;
 $font-size-h2:          15px !default;
 $font-size-default:     15px !default;
 $line-height-default:   23px !default;
 
 // Misc.
-$main-border-size:      12px !default;
+$margin-default-p:      0 0 20px 0 !default;
+$margin-default-li:     0 0 50px 0 !default;
