@@ -37,13 +37,6 @@ function images() {
         .pipe(plugins.size({title: '--> Images'}));
 }
 
-// Copies the sounds directory from /src/sounds to /build/sounds
-function sounds() {
-    return gulp.src(config.path.src.sounds)
-        .pipe(gulp.dest(config.path.build.sounds))
-        .pipe(plugins.size({title: '--> Sounds'}));
-}
-
 // Compiles SASS into CSS, auto prefixes if necessary, and minifies CSS if --minify is used
 // Renames it eventually to main.min.css, outputs it in build/css
 function styles() {
@@ -59,21 +52,10 @@ function styles() {
         .pipe(plugins.size({title: '--> CSS'}));
 }
 
-// Enables sourcemaps, uglifies if --minify is used, concats all the files in /src/js,
-// renames it to main.min.js, outputs it in build/js
-function scripts() {
-    return gulp.src(config.path.src.scripts, {sourcemaps: true})
-        .pipe(plugins.if(minify, plugins.uglify()))
-        .pipe(plugins.concat('main.min.js'))
-        .pipe(gulp.dest(config.path.build.scripts))
-        .pipe(plugins.size({title: '--> Scripts'}));
-}
-
-// Watches html, images, scripts, styles folders for changes
+// Watches html, images, styles folders for changes
 function watch() {
     gulp.watch(config.path.src.html, html);
     gulp.watch(config.path.src.images, images);
-    gulp.watch(config.path.src.scripts, scripts);
     gulp.watch(config.path.src.styles, styles);
 }
 
@@ -81,18 +63,16 @@ function watch() {
 exports.clean = clean;
 exports.html = html;
 exports.images = images;
-exports.sounds = sounds;
 exports.styles = styles;
-exports.scripts = scripts;
 exports.watch = watch;
 
 // Here the exported functions are being used with shorthand commands
 // c = clean, b = build, w = watch
 const __c = gulp.series(clean);
-const __cb = gulp.series(clean, gulp.parallel(html, images, sounds, styles, scripts));
-const __cbw = gulp.series(clean, gulp.parallel(html, images, sounds, styles, scripts), watch);
-const __b = gulp.parallel(html, images, sounds, styles, scripts);
-const __bw = gulp.series(gulp.parallel(html, images, sounds, styles, scripts), watch);
+const __cb = gulp.series(clean, gulp.parallel(html, images, styles));
+const __cbw = gulp.series(clean, gulp.parallel(html, images, styles), watch);
+const __b = gulp.parallel(html, images, styles);
+const __bw = gulp.series(gulp.parallel(html, images, styles), watch);
 
 // The tasks defined, based on the clean/build/watch constants (above)
 // Usage: gulp c, gulp cb, gulp cbw, gulp b, gulp bw
