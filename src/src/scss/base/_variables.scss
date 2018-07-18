@@ -1,0 +1,29 @@
+/******************************
+* Variables
+******************************/
+// Colours
+$color-primary:         #1A1E26 !default;
+$color-secondary:       #E6EAD9 !default;
+$color-white:           #fff !default;
+
+$color-headings:        #1A1E26 !default;
+$color-paragraphs:      #1A1E26 !default;
+$color-date:            #C59033 !default;
+
+// Background colours
+$bgcolor-icons:         #00BAFF !default;
+
+// Fonts
+$font-stack-default:    Arial, sans-serif !default;
+$font-size-default:     15px !default;
+$line-height-default:   23px !default;
+
+// Breakpoints
+$bp-large-max:          1488px !default;
+$bp-large:              1489px !default;
+
+// Misc.
+$margin-default-p:          0 0 20px 0 !default;
+$margin-default-li:         0 0 50px 0 !default;
+$margin-activities-titles:  0 0 5px 0 !default;
+$margin-featured-sections:  0 0 10px 0 !default;
