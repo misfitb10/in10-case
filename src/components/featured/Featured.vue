@@ -14,7 +14,7 @@
                         Altijd
                     </span>
 
-                    <span v-if="article.dateTill.length > 0" class="featured__label featured__label--now">
+                    <span v-else class="featured__label featured__label--now">
                         Nu
                     </span>
 
