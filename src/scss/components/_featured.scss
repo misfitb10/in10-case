@@ -45,7 +45,7 @@
 
         &:before {
             //content: "⇘"; // I'd rather have it like this!
-            content: url("../images/icons/icon-lower-corner.png");
+            //content: url("../images/icons/icon-lower-corner.png");
             text-align: center;
             background-color: $bgcolor-icons;
             position: absolute;

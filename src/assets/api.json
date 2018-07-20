@@ -1,0 +1,45 @@
+{
+    "featured": {
+        "articles": [
+            {
+                "label": "Altijd te zien",
+                "title": "Vaste collectie",
+                "subtitle": "Reis door de kunstgeschiedenis",
+                "artists": [],
+                "dateTill": "",
+                "image": ""
+            },
+            {
+                "label": "Nu te zien",
+                "title": "Gek op surrealisme",
+                "subtitle": "",
+                "artists": [
+                    "Dali",
+                    "Ernst",
+                    "Magritte",
+                    "Miro"
+                ],
+                "dateTill": "t/m 28 mei 2017",
+                "image": ""
+            }
+        ]
+    },
+    "activities": {
+        "articles": [
+            {
+                "isMain": "true",
+                "title": "Introductiecursus Gek van surrealisme",
+                "subtitle": "Grafiek van Max Klinker",
+                "date": "24 februari 2017",
+                "time": "13.00 - 14.30 uur"
+            },
+            {
+                "title": "Kleinkunstig",
+                "subtitle": "Kijk en doeboekje",
+                "date": "t/m 5 maart 2017",
+                "time": "13.00 - 14.30 uur"
+            }
+        ],
+        "moreButton": "Bekijk alle activiteiten"
+    }
+}

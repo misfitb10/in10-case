@@ -11,9 +11,7 @@
     import Main from "./components/Main.vue";
 
     @Component({
-        components: {
-            Main
-        }
+        components: {Main}
     })
 
     export default class App extends Vue {
@@ -22,5 +20,6 @@
 </script>
 
 <style lang="scss">
-
+    @import "./scss/base/__base";
+    @import "./scss/components/_main-content";
 </style>
