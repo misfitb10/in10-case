@@ -1,8 +1,6 @@
 <template>
     <main class="main-content is-centered">
-        <section class="content-wrapper">
-            <Main></Main>
-        </section>
+        <Main></Main>
     </main>
 </template>
 

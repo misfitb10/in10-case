@@ -1,12 +1,8 @@
 <template>
-    <!--
-        Is there something like `Fragment` in vue?
-        Because now, we have to use an empty div in order to contain the two components.
-    -->
-    <div>
+    <section class="content-wrapper">
         <Featured></Featured>
         <Activities></Activities>
-    </div>
+    </section>
 </template>
 
 <script lang="ts">
