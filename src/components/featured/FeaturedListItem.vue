@@ -1,8 +1,8 @@
 <template>
     <li class="featured__list-item">
-        <img alt="featured image (todo)"
-            class="featured__image"
-            :src=article.image
+        <img :src=article.image
+             alt="featured image (todo)"
+             class="featured__image"
         />
 
         <div class="featured__info">
@@ -14,20 +14,19 @@
                 Nu
             </span>
 
-            <h1 class="featured__title" v-if="article.title">{{article.title}}</h1>
-            <h2 class="featured__subtitle" v-if="article.subtitle">{{article.subtitle}}</h2>
+            <h1 v-if="article.title" class="featured__title">{{article.title}}</h1>
+            <h2 v-if="article.subtitle" class="featured__subtitle">{{article.subtitle}}</h2>
 
-            <ul class="featured__artists-list" v-if="article.artists.length > 0">
-                <li class="featured__artists-list-item" v-for="artist in article.artists">{{artist}}</li>
+            <ul v-if="article.artists.length > 0" class="featured__artists-list">
+                <li v-for="artist in article.artists" class="featured__artists-list-item">{{artist}}</li>
             </ul>
 
-            <div class="featured__date text--date">t/m 28 mei 2017</div>
+            <div v-if="article.dateTill.length > 0" class="featured__date text--date">{{article.dateTill}}</div>
         </div>
     </li>
 </template>
 
 <script lang="ts">
-    import axios from 'axios'
     export default {
         props: ['article']
     }
