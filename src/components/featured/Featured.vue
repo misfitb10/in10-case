@@ -33,10 +33,9 @@
 </template>
 
 <script lang="ts">
-    import {Component, Vue} from "vue-property-decorator";
     import axios from 'axios'
 
-    @Component({
+    export default {
         data: function() {
             return  {
                 articles: []
@@ -47,10 +46,6 @@
                 .get('https://www.bilal.wtf/projects/in10-case/api/api.json')
                 .then(response => this.articles = response.data.featured.articles)
         }
-    })
-
-    export default class Featured extends Vue {
-
     }
 </script>
 

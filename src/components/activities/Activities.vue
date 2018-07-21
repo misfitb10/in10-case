@@ -1,24 +1,26 @@
 <template>
     <div class="activities__wrapper">
         <section class="activities">
-            <h1 class="activities__head-title">Activiteiten</h1>
+            <h1 class="activities__head-title" v-if="activitiesHeading">{{activitiesHeading}}</h1>
 
             <ol class="activities__list" v-if="articles">
                 <li class="activities__list-item is-main" v-for="article in articles">
                     <div class="activities__secondary-content">
+
+                        <!-- TODO: And maybe make it with an API call with different screens (s, m, l) and 'retina' -->
                         <img class="activities__image"
                              alt="Vaste collectie"
                              src="/assets/images/introductiecursus-gek-van-surrealisme.png"/>
                     </div>
 
                     <div class="activities__primary-content">
-                        <div class="activities__date-and-time">
-                            <span class="activities__date text--date">{{article.date}}</span>
-                            <span class="activities__time">{{article.time}}</span>
+                        <div class="activities__date-and-time" v-if="article.date || article.time">
+                            <span class="activities__date text--date" v-if="article.date">{{article.date}}</span>
+                            <span class="activities__time" v-if="article.time">{{article.time}}</span>
                         </div>
 
-                        <h1 class="activities__title">{{article.title}}</h1>
-                        <h2 class="activities__subtitle">{{article.subtitle}}</h2>
+                        <h1 class="activities__title" v-if="article.title">{{article.title}}</h1>
+                        <h2 class="activities__subtitle" v-if="article.subtitle">{{article.subtitle}}</h2>
 
                         <table class="activities__table-courses">
                             <tbody>
@@ -49,20 +51,20 @@
                 <!--</li>-->
             </ol>
 
-            <a href="#" class="activities__show-all-link">{{viewAllActivitiesButton}}</a>
+            <a href="#" class="activities__show-all-link" v-if="showAllActivitiesButton">{{showAllActivitiesButton}}</a>
         </section>
     </div>
 </template>
 
 <script lang="ts">
-    import {Component, Vue} from "vue-property-decorator";
     import axios from 'axios'
 
-    @Component({
+    export default {
         data: function() {
             return  {
                 articles: [],
-                viewAllActivitiesButton: ''
+                showAllActivitiesButton: '',
+                activitiesHeading: 'Activities'
             }
         },
         mounted() {
@@ -70,12 +72,9 @@
                 .get('https://www.bilal.wtf/projects/in10-case/api/api.json')
                 .then(response => {
                     this.articles = response.data.activities.articles;
-                    this.viewAllActivitiesButton = response.data.activities.moreButton;
-                })
+                    this.showAllActivitiesButton = response.data.activities.moreButton;
+                });
         }
-    })
-    export default class Activities extends Vue {
-
     }
 </script>
 
