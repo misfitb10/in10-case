@@ -3,7 +3,12 @@
         <section class="activities">
             <h1 class="activities__head-title" v-if="activitiesHeading">{{activitiesHeading}}</h1>
 
-            <ol class="activities__list" v-if="articles">
+            <p v-if="error">
+                Sorry, op dit moment is er een fout opgetreden met dit onderdeel van de website. <br/>
+                Voor developers: staat CORS aan?
+            </p>
+
+            <ol class="activities__list" v-if="articles.length">
                 <li class="activities__list-item is-main" v-for="article in articles">
                     <div class="activities__secondary-content">
 
@@ -64,7 +69,8 @@
             return  {
                 articles: [],
                 showAllActivitiesButton: '',
-                activitiesHeading: 'Activities'
+                activitiesHeading: 'Activities',
+                error: false
             }
         },
         mounted() {
@@ -73,7 +79,11 @@
                 .then(response => {
                     this.articles = response.data.activities.articles;
                     this.showAllActivitiesButton = response.data.activities.moreButton;
-                });
+                })
+                .catch(error => {
+                    console.log(error);
+                    this.error = true
+                })
         }
     }
 </script>
