@@ -7,9 +7,9 @@
 
         <ol class="featured__list" v-if="articles.length">
             <FeaturedListItem
-                    v-for="article in articles"
-                    v-bind:key="article.id"
-                    v-bind:article="article"
+                v-for="article in articles"
+                v-bind:key="article.id"
+                v-bind:article="article"
             ></FeaturedListItem>
         </ol>
     </section>
@@ -24,12 +24,13 @@
         data: function() {
             return  {
                 error: false,
-                articles: []
+                articles: [],
+                apiURL: 'https://www.bilal.wtf/projects/in10-case/api/api.json'
             }
         },
         mounted() {
             axios
-                .get('https://www.bilal.wtf/projects/in10-case/api/api.json')
+                .get(this.apiURL)
                 .then(response => this.articles = response.data.featured.articles)
                 .catch(error => {
                     console.log(error);
